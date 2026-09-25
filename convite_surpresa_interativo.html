@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#681827">
+<title>Uma surpresa para você ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#4b101c,#16090c 65%);font-family:Georgia,serif;color:#35151b;display:flex;align-items:center;justify-content:center;padding:20px}
+.box{width:min(680px,100%);background:linear-gradient(145deg,#fff9f5,#ead7cf);border:1px solid #d8bdb2;border-radius:28px;padding:34px 22px;box-shadow:0 20px 50px #0008;text-align:center}
+.heart{font-size:42px;animation:beat 1.7s infinite;color:#681827}.eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:#70545a}
+h1,h2{margin:14px 0 0}.script{font-family:"Brush Script MT","Segoe Script",cursive;font-weight:500}.title{font-size:clamp(36px,9vw,58px)}.subtitle{font-size:clamp(26px,7vw,40px)}
+p{line-height:1.6;font-size:17px}.date{font-size:44px;font-weight:bold;margin-top:20px}.muted{color:#725e63}
+button{min-height:50px;border:0;border-radius:999px;padding:13px 24px;font-size:16px;font-weight:700;cursor:pointer;margin-top:22px;transition:.2s}
+button:active{transform:scale(.97)}.main{background:#681827;color:white}.soft{background:#fff;color:#681827;border:1px solid #cbaea5}
+.hide{display:none!important}.note{background:#ffffff99;border-radius:20px;padding:16px;margin-top:20px}
+@keyframes beat{50%{transform:scale(1.13)}}@media(prefers-reduced-motion:reduce){.heart{animation:none}}
+</style>
+</head>
+<body>
+<main class="box">
+<div class="heart">♥</div>
+
+<section id="s1">
+<div class="eyebrow">Mensagem confidencial</div>
+<h1 class="script title">Meu amor...</h1>
+<p>Você recebeu acesso a uma missão que não pode ser ignorada. 🤫</p>
+<button class="main" data-next="2">🔐 Aceitar a missão</button>
+</section>
+
+<section id="s2" class="hide">
+<div class="eyebrow">Missão aceita</div>
+<h2 class="script subtitle">Primeira pista 👀</h2>
+<p>Existe alguém preparando algo muito especial para você.</p>
+<button class="soft" data-next="3">✨ Descobrir quando</button>
+</section>
+
+<section id="s3" class="hide">
+<h2 class="script subtitle">A data foi encontrada...</h2>
+<div class="date">27/09</div>
+<p class="muted">Mas ainda existe um detalhe escondido.</p>
+<button class="soft" data-next="4">🕵️ Revelar o horário</button>
+</section>
+
+<section id="s4" class="hide">
+<h2 class="script subtitle">Mais uma pista...</h2>
+<div class="date">11h00</div>
+<p class="muted">Agora você já sabe quando. Falta descobrir onde.</p>
+<button class="soft" data-next="5">📍 Descobrir o local</button>
+</section>
+
+<section id="s5" class="hide">
+<h2 class="script subtitle">Última pista ❤️</h2>
+<div class="date" style="font-size:36px">Minha casa</div>
+<p>Sua presença é indispensável. E não tente descobrir o restante antes da hora... 🤭</p>
+<button class="main" data-next="6">💌 Revelar a mensagem final</button>
+</section>
+
+<section id="s6" class="hide">
+<div style="font-size:52px">🥰❤️</div>
+<h2 class="script subtitle">Agora você sabe!</h2>
+<p>Dia <strong>27/09 às 11h00</strong>, na minha casa.</p>
+<p class="script" style="font-size:25px">Mas o verdadeiro motivo só será descoberto quando você chegar...</p>
+<div class="note">Prepare-se. Eu estou preparando tudo com muito amor para você. 💕</div>
+<button class="main" data-next="7">❤️ Eu estarei lá!</button>
+</section>
+
+<section id="s7" class="hide">
+<div style="font-size:58px">💌</div>
+<h2 class="script title" style="font-size:45px">Presença confirmada!</h2>
+<p>Agora só falta você aparecer no dia <strong>27/09 às 11h00</strong>. ❤️</p>
+<p><strong>E lembre-se: o segredo continua sendo segredo. 🤫</strong></p>
+</section>
+</main>
+
+<script>
+(() => {
+  const sections = [...document.querySelectorAll('section')];
+  const show = n => sections.forEach((s,i) => s.classList.toggle('hide', i !== n-1));
+  document.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      show(Number(btn.dataset.next));
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
